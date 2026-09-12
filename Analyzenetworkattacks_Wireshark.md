@@ -32,7 +32,6 @@ The web server became overwhelmed by the high number of incoming connection requ
 
 The incident was identified as a:
 
-```text
 TCP SYN Flood DoS Attack
 ## Attack Identified
 
@@ -40,7 +39,6 @@ The incident was identified as a:
 
 ```text
 TCP SYN Flood DoS Attack
-```
 
 A SYN flood attack takes advantage of the TCP three-way handshake.
 
