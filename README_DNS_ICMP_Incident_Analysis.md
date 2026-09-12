@@ -1,6 +1,3 @@
-Yes — here is the README **written out as a clean copy-paste template** for GitHub:
-
-````markdown
 # DNS & ICMP Network Traffic Analysis
 
 A cybersecurity incident investigation project completed as part of the **Google Cybersecurity Professional Certificate**. This activity focused on analyzing network traffic with `tcpdump` to determine why users could not access a website.
@@ -13,7 +10,6 @@ To investigate the issue, I analyzed network traffic using `tcpdump`. The packet
 
 ```text
 udp port 53 unreachable
-````
 
 This prevented the browser from resolving the website domain name into an IP address, so the browser could not continue to the HTTPS connection.
 
