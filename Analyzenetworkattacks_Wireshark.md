@@ -37,7 +37,6 @@ TCP SYN Flood DoS Attack
 
 The incident was identified as a:
 
-```text
 TCP SYN Flood DoS Attack
 
 A SYN flood attack takes advantage of the TCP three-way handshake.
@@ -52,8 +51,6 @@ Client            Server
   |------ ACK ------>|
   |                  |
 Connection Established
-```
-
 During a SYN flood attack, the attacker sends a large number of SYN packets but does not complete the handshake.
 
 ```text
