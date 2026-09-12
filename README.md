@@ -191,7 +191,8 @@ Add screenshots of the tcpdump log or completed incident report here.
 Example:
 
 ```html
-<img width="1200" alt="tcpdump network traffic analysis" src="YOUR-GITHUB-IMAGE-LINK" />
+<img width="1048" height="459" alt="Screenshot 2026-09-12 at 23 02 38" src="https://github.com/user-attachments/assets/ffad0577-4b0a-4897-8e1b-f114038521be" />
+" />
 ```
 
 ## Certificate
