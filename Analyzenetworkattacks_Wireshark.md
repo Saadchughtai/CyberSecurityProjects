@@ -22,13 +22,18 @@ One afternoon, the network monitoring system generated an automated alert indica
 
 When the website was tested, the browser returned:
 
-```text
 connection timeout
 
 A packet capture was then reviewed, and a large number of **TCP SYN packets** were observed coming from an unfamiliar IP address.
 
 The web server became overwhelmed by the high number of incoming connection requests and was no longer able to respond normally to legitimate users.
 
+## Attack Identified
+
+The incident was identified as a:
+
+```text
+TCP SYN Flood DoS Attack
 ## Attack Identified
 
 The incident was identified as a:
