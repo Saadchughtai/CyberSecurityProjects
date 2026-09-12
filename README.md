@@ -1,6 +1,4 @@
-Yes — for GitHub, a cleaner **single-flow README like your Automation Demo** is much better. You can paste this directly into `README.md`:
 
-````markdown
 # Network Traffic Analysis
 
 A beginner-friendly cybersecurity network analysis project completed as part of the **Google Cybersecurity Professional Certificate**. This project focuses on analyzing DNS and ICMP traffic using `tcpdump` to investigate why users were unable to access a website.
