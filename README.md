@@ -197,7 +197,7 @@ Example:
 
 ## Certificate
 
-This project was completed as part of the **Google Cybersecurity Professional Certificate** and demonstrates practical experience with network traffic analysis and cybersecurity incident investigation.
+This project was completed as part of the Google Cybersecurity Professional Certificate and demonstrates practical experience with network traffic analysis and cybersecurity incident investigation.
 
 ## Disclaimer
 
@@ -209,11 +209,4 @@ This project is for educational, portfolio, and learning purposes.
 
 ```
 
-For the GitHub repository name, I recommend:
 
-**`network-traffic-analysis`**
-
-And for the short GitHub description:
-
-> **Cybersecurity network traffic analysis project using tcpdump to investigate DNS, UDP port 53, and ICMP errors as part of the Google Cybersecurity Professional Certificate.**
-```
