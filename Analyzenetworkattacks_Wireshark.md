@@ -43,7 +43,6 @@ A SYN flood attack takes advantage of the TCP three-way handshake.
 
 A normal TCP connection works like this:
 
-```text
 Client            Server
   |                  |
   |------ SYN ------>|
@@ -66,7 +65,6 @@ Attacker          Server
   |<--- SYN-ACK -----|
   |                  |
 Connections remain incomplete
-```
 
 The server keeps resources reserved while waiting for the final ACK packets. When too many connections remain half-open, the server may run out of resources.
 
