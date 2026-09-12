@@ -1,5 +1,3 @@
-
-````markdown
 # SYN Flood Attack Analysis
 
 A cybersecurity incident analysis project completed as part of the **Google Cybersecurity Professional Certificate**. This activity focuses on identifying a **TCP SYN flood denial-of-service (DoS) attack**, understanding how it disrupts normal TCP connections, and explaining how the attack affected website availability.
@@ -26,7 +24,6 @@ When the website was tested, the browser returned:
 
 ```text
 connection timeout
-````
 
 A packet capture was then reviewed, and a large number of **TCP SYN packets** were observed coming from an unfamiliar IP address.
 
