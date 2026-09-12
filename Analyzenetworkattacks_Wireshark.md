@@ -51,8 +51,6 @@ Client            Server
   |                  |
 Connection Established
 During a SYN flood attack, the attacker sends a large number of SYN packets but does not complete the handshake.
-
-```text
 Attacker          Server
   |                  |
   |------ SYN ------>|
@@ -124,7 +122,6 @@ Malicious IP
      | Blocked
      X
  Web Server
-```
 
 Blocking the IP address provided short-term protection, but it is not a complete solution because attackers can change or spoof source IP addresses.
 
