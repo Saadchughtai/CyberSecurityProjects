@@ -174,7 +174,6 @@ To reduce the risk of future SYN flood attacks, the organization could use:
 
 ## Attack Flow
 
-```text
 Attacker
    |
    | Large number of SYN packets
@@ -210,8 +209,6 @@ syn-flood-attack-analysis/
 ├── logs/
 │   └── wireshark-tcp-http-log
 └── screenshots/
-```
-
 ## Screenshots
 
 Add screenshots of the Wireshark traffic, incident report, or analysis here.
