@@ -112,7 +112,6 @@ The web server was temporarily taken offline so that it could recover and return
 
 The firewall was also configured to block the IP address responsible for the abnormal number of SYN requests.
 
-```text
 Malicious IP
      |
      | SYN Flood
@@ -192,7 +191,6 @@ Legitimate users cannot connect
    |
    v
 Website becomes slow or unavailable
-```
 
 ## DoS vs DDoS
 
