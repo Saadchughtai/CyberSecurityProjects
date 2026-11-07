@@ -1,212 +1,206 @@
 
-# Network Traffic Analysis
+# 🛡️ Cybersecurity Portfolio
 
-A beginner-friendly cybersecurity network analysis project completed as part of the **Google Cybersecurity Professional Certificate**. This project focuses on analyzing DNS and ICMP traffic using `tcpdump` to investigate why users were unable to access a website.
+## 👨‍💻 About Me
 
-## Features
+I am an MSc Cybersecurity graduate from Teesside University, UK, with two years of professional experience as a Software Quality Assurance Engineer.
 
-- Network traffic analysis with tcpdump
-- DNS traffic investigation
-- UDP port analysis
-- ICMP error interpretation
-- Source and destination IP identification
-- Port and protocol identification
-- Incident investigation
-- Root cause analysis
+I have completed the Google Cybersecurity Professional Certificate and am continuously developing my practical cybersecurity skills through hands-on labs, security investigations, and professional training.
+
+My interests include:
+
+- Security Operations Centre (SOC) Analysis
+- Governance, Risk and Compliance (GRC)
+- Vulnerability Management
+- Information Security
+- Security Testing and Incident Response
+
+This repository showcases my practical cybersecurity projects, investigations, and technical skills.
+
+---
+
+## 🛠️ Technical Skills
+
+### Security Operations
+- Security monitoring and incident investigation
+- Network traffic analysis
+- Log analysis
+- Security incident documentation
+
+### Network Security
+- TCP/IP, DNS, ICMP
+- Wireshark
+- tcpdump
 - Network troubleshooting
 
-## Incident Scenario
+### Vulnerability Management
+- Nessus
+- OpenVAS
+- Vulnerability assessment
+- Risk prioritisation
+- Remediation recommendations
 
-Users reported that they were unable to access `www.yummyrecipesforme.com` and received a:
+### Governance, Risk and Compliance
+- ISO 27001 fundamentals
+- NIST Cybersecurity Framework
+- Security risk assessments
+- Security controls and audit documentation
 
-```text
-destination port unreachable
-````
+### Programming and Testing
+- Python
+- SQL
+- Postman
+- Selenium
+- Jira
+- Software Quality Assurance
 
-error.
+### Operating Systems
+- Windows
+- Linux
+- Active Directory
+- Group Policy
 
-To investigate the issue, network traffic was analyzed using `tcpdump`.
+---
 
-The client computer attempted to send a DNS request to the DNS server using UDP port `53`.
+## 📂 Cybersecurity Projects
 
-Instead of receiving a DNS response, the client received an ICMP error:
+### 🔹 1. Google Cybersecurity Professional Certificate
 
-```text
-udp port 53 unreachable
-```
+**Status:** Completed
 
-This prevented the browser from resolving the website's domain name into an IP address and therefore prevented the HTTPS connection from starting.
+This section contains practical cybersecurity projects completed during the Google Cybersecurity Professional Certificate.
 
-## Network Details
+**Projects:**
 
-| Component         | Details                   |
-| ----------------- | ------------------------- |
-| Client IP         | `192.51.100.15`           |
-| DNS Server IP     | `203.0.113.2`             |
-| Affected Protocol | DNS over UDP              |
-| Affected Port     | UDP `53`                  |
-| Error Protocol    | ICMP                      |
-| Error Message     | `udp port 53 unreachable` |
-| Incident Time     | `13:24:32.192571`         |
+- **DNS & ICMP Network Traffic Analysis**
+  - Investigated website connectivity issues using tcpdump.
+  - Analysed DNS requests and ICMP error responses.
+  - Documented findings and recommendations.
 
-## Traffic Flow
+- **Network Attack Analysis using Wireshark**
+  - Analysed network traffic.
+  - Investigated suspicious network behaviour.
+  - Documented technical findings.
 
-Expected traffic:
+- **Cybersecurity Incident Report**
+  - Investigated a simulated network incident.
+  - Prepared an incident analysis report.
 
-```text
-Client
-  |
-  | DNS Query - UDP Port 53
-  v
-DNS Server
-  |
-  | DNS Response
-  v
-Client
-  |
-  | HTTPS Request - Port 443
-  v
-Web Server
-```
+**Skills demonstrated:**
+Network analysis, incident investigation, troubleshooting, and technical reporting.
 
-Observed traffic:
+📁 [View Google Cybersecurity Projects](./Google-Cybersecurity/)
 
-```text
-Client
-  |
-  | DNS Query - UDP Port 53
-  v
-DNS Server
-  |
-  | ICMP Error
-  | "udp port 53 unreachable"
-  v
-Client
-```
+---
 
-## Key Findings
+### 🔹 2. Governance, Risk and Compliance (GRC)
 
-* The affected service was **DNS**
-* DNS requests were sent using **UDP port 53**
-* The client IP address was `192.51.100.15`
-* The DNS server IP address was `203.0.113.2`
-* ICMP returned a `udp port 53 unreachable` error
-* The DNS request failed multiple times
-* The browser could not resolve the website domain name
-* The HTTPS connection could not begin because DNS resolution failed first
-* Port `443` was not identified as the original point of failure
+**Status:** Planned
 
-## Possible Cause
+This section will contain hands-on GRC projects developed through professional training.
 
-A likely cause of the incident was that the DNS service was unavailable or was not listening on UDP port `53`.
+**Planned projects:**
 
-Other possible causes include:
+- ISO 27001 Gap Assessment
+- Cybersecurity Risk Assessment
+- Risk Register Development
+- Security Audit Report
+- NIST Cybersecurity Framework Assessment
 
-* Firewall blocking UDP port 53
-* DNS server outage
-* DNS service misconfiguration
-* DNS service failure
-* Network configuration issue
+**Skills to develop:**
+Risk management, compliance assessment, security auditing, and security governance.
 
-The available packet data does not provide enough evidence to confirm whether the incident was caused by a malicious attack.
+📁 [View GRC Projects](./GRC-Projects/)
 
-## Recommended Troubleshooting
+---
 
-Further investigation should include:
+### 🔹 3. TryHackMe SOC Labs
 
-* Verify that the DNS service is running
-* Confirm that UDP port 53 is listening
-* Review firewall rules
-* Check DNS server configuration
-* Review DNS server logs
-* Test DNS resolution
-* Check network connectivity between the client and DNS server
+**Status:** Planned
 
-Useful commands may include:
+This section will document hands-on security operations labs completed through TryHackMe.
 
-```bash
-nslookup www.yummyrecipesforme.com
-```
+**Planned investigations:**
 
-```bash
-dig www.yummyrecipesforme.com
-```
+- SIEM Alert Investigation
+- Windows Event Log Analysis
+- Phishing Email Investigation
+- Network Traffic Analysis
+- Security Incident Response
 
-```bash
-sudo ss -ulnp | grep ':53'
-```
+**Skills to develop:**
+Threat detection, incident triage, log analysis, and security monitoring.
 
-```bash
-sudo iptables -L -n -v
-```
+📁 [View TryHackMe SOC Labs](./TryHackMe-SOC-Labs/)
 
-## Tools & Technologies
+---
 
-* tcpdump
-* DNS
-* UDP
-* ICMP
-* HTTPS
-* TCP/IP
-* Linux networking
+## 🎓 Education
 
-## Skills Practiced
+### MSc Cybersecurity — Merit
+**Teesside University, United Kingdom | 2025**
 
-* Network traffic analysis
-* Packet analysis
-* DNS troubleshooting
-* ICMP error analysis
-* Port identification
-* Protocol analysis
-* Incident investigation
-* Root cause analysis
-* Network troubleshooting
-* Cybersecurity incident documentation
+Relevant areas:
+- Network Security
+- Digital Forensics
+- Incident Response
+- Cloud Security
+- Security Management
+- Ethical Hacking
 
-## Learning Objectives
+### BSc Computer Science
+**PMAS Arid Agriculture University | 2021**
 
-* Understand how DNS traffic works
-* Analyze network packets using tcpdump
-* Identify source and destination IP addresses
-* Recognize common network ports
-* Understand ICMP error messages
-* Identify where network communication fails
-* Distinguish DNS failures from HTTPS failures
-* Develop possible root causes based on packet evidence
-* Document findings from a cybersecurity investigation
+---
 
-## Project Structure
+## 🏆 Certifications
 
-```text
-network-traffic-analysis/
-├── README.md
-├── Cybersecurity-incident-report-network-traffic-analysis.pdf
-└── screenshots/
-```
+### Completed
+- Google Cybersecurity Professional Certificate
 
-## Screenshots
+### Planned / Professional Development
+- GRC Mastery Training
+- ISO 27001 Lead Auditor Training
+- TryHackMe Pre Security
+- TryHackMe Cyber Security 101
+- TryHackMe SOC Level 1
+- CompTIA Security+
 
-Add screenshots of the tcpdump log or completed incident report here.
+---
 
-Example:
+## 💼 Professional Background
 
-```html
-<img width="1048" height="459" alt="Screenshot 2026-09-12 at 23 02 38" src="https://github.com/user-attachments/assets/ffad0577-4b0a-4897-8e1b-f114038521be" />
-" />
-```
+### Software Quality Assurance Engineer
+**2 Years of Professional Experience**
 
-## Certificate
+- Conducted software testing and defect investigations.
+- Performed root-cause analysis and technical troubleshooting.
+- Used Postman, Selenium, and Jira.
+- Worked within Agile development environments.
+- Developed analytical, documentation, and problem-solving skills.
 
-This project was completed as part of the Google Cybersecurity Professional Certificate and demonstrates practical experience with network traffic analysis and cybersecurity incident investigation.
+---
 
-## Disclaimer
+## 🎯 Career Objective
 
-This project is based on a simulated cybersecurity training scenario. The IP addresses, domain name, and incident details are part of the educational activity and do not represent a real production security incident.
+I am actively seeking entry-level cybersecurity opportunities in the United Kingdom.
 
-## License
+My target roles include:
 
-This project is for educational, portfolio, and learning purposes.
+- Junior Cybersecurity Analyst
+- SOC Analyst (Level 1)
+- Junior GRC Analyst
+- Information Security Analyst
+- Vulnerability Management Analyst
+- Security Testing Analyst
+- IT Risk and Compliance Analyst
 
-```
+My goal is to apply my technical background, cybersecurity education, and hands-on experience to help organisations strengthen their security posture.
 
+---
 
+## 📈 Continuous Learning
+
+I regularly update this portfolio with new cybersecurity labs, technical investigations, and practical projects as I continue developing my skills.
+
+Thank you for visiting my cybersecurity portfolio!
