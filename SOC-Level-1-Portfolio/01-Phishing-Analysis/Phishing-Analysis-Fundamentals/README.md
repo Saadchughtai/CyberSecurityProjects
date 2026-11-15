@@ -55,19 +55,32 @@ I gained practical experience identifying sender information, locating originati
 
 Screenshots supporting this investigation:
 
-**- Email source and header inspection**
+### 1. Email source and header inspection
+
 
  <img width="2084" height="1677" alt="image" src="https://github.com/user-attachments/assets/fa2157d7-24f8-460e-9ed2-b745cf1a7d73" />
 
-**- Sender email identification**
+
+
+### 2. Sender email identification
+
+
 
   <img width="2086" height="1671" alt="image" src="https://github.com/user-attachments/assets/7d899be6-eed6-48f8-974d-13cfae248533" />
 
-**- X-Originating-IP identification**
+
+
+ ### 3. X-Originating-IP identification
+
+
 
   <img width="2081" height="1670" alt="image" src="https://github.com/user-attachments/assets/975d5cba-19a2-4522-889a-83fef86940cc" />
 
-**- CyberChef IP defanging process**
+
+
+### 4. CyberChef IP defanging process
+
+
 
   <img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/027eb63b-1ed0-4338-b26a-2178d601a7cc" />
 
