@@ -101,8 +101,27 @@ I used different display filters to answer questions about the captured packets.
 | DNS A record responses | `dns.qry.type == 1 && dns.flags.response == 1` | 51 |
 
 ### Screenshots
+<img width="2078" height="1673" alt="image" src="https://github.com/user-attachments/assets/639fa36a-b30c-490c-a012-490ab97ccb7a" />
+<img width="2081" height="1676" alt="image" src="https://github.com/user-attachments/assets/0a14a068-984c-439a-8ff9-37c85a305880" />
+<img width="2084" height="1679" alt="image" src="https://github.com/user-attachments/assets/42113477-c217-4450-b198-695c595e160a" />
+<img width="2086" height="1676" alt="image" src="https://github.com/user-attachments/assets/bd86543e-fd3a-42dd-8e60-7143c35f3208" />
+<img width="2088" height="1677" alt="image" src="https://github.com/user-attachments/assets/efb28ce8-23d0-4454-bb3c-aeb2649648d8" />
+<img width="2081" height="1674" alt="image" src="https://github.com/user-attachments/assets/c8f89739-4b04-4861-8023-b3e35776423a" />
+<img width="2082" height="1682" alt="image" src="https://github.com/user-attachments/assets/1fce94a1-bf75-45a7-8e5d-9096a3506296" />
+<img width="2079" height="1676" alt="image" src="https://github.com/user-attachments/assets/b77205c0-8d0c-415f-b6e6-986595b2d617" />
+<img width="2080" height="1675" alt="image" src="https://github.com/user-attachments/assets/53b32ed1-65c2-40be-8bbd-96513b3a8f52" />
+<img width="2083" height="1674" alt="image" src="https://github.com/user-attachments/assets/cd1c52d9-b26a-408d-9494-5e7d28f1caf7" />
+<img width="2078" height="1670" alt="image" src="https://github.com/user-attachments/assets/1f23a986-6f71-4950-81ab-7cd9a25702f3" />
+<img width="2088" height="1671" alt="image" src="https://github.com/user-attachments/assets/219ca36a-7c0e-45cb-9152-dd4d8fbd625d" />
+<img width="2086" height="1675" alt="image" src="https://github.com/user-attachments/assets/de799a49-5d9b-4812-b624-90e1ba482007" />
+<img width="2085" height="1681" alt="image" src="https://github.com/user-attachments/assets/c60d4c83-d11f-4180-ab30-89b221327306" />
+<img width="2085" height="1678" alt="image" src="https://github.com/user-attachments/assets/5e645619-b87f-4fca-9fc8-43636bd8a98a" />
+<img width="1496" height="1675" alt="image" src="https://github.com/user-attachments/assets/4c31d9a3-066e-4cc6-a5d8-3d13350bb7f1" />
+<img width="1498" height="1673" alt="image" src="https://github.com/user-attachments/assets/0bb45e68-b359-4843-90dd-ee47ea3263bf" />
+<img width="1801" height="1680" alt="image" src="https://github.com/user-attachments/assets/1cc05bc8-cf3a-453e-9c4e-7264e3be211d" />
+<img width="1805" height="1679" alt="image" src="https://github.com/user-attachments/assets/50e1b252-eda2-425d-8562-0ce544f129b2" />
+<img width="1803" height="1669" alt="image" src="https://github.com/user-attachments/assets/cb781845-a5a0-4d6b-9e40-f7b53aac4487" />
 
-I will add screenshots of my practical work here, including the Wireshark statistics and filters I used to find the answers.
 
 ### What I Learned
 
