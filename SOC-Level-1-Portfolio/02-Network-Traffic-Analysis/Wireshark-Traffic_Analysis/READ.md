@@ -2,13 +2,13 @@
 
 ## About This Room
 
-In this room, I used Wireshark to investigate different types of network traffic and learn how to spot unusual activity.
+In this room, I used Wireshark to investigate different types of network traffic and learn how to identify suspicious activity.
 
-I worked with several PCAP files and explored different network activities, including Nmap scans, ARP spoofing, host identification, FTP traffic, suspicious HTTP requests and encrypted HTTPS traffic.
+I worked with several PCAP files and explored network activities such as Nmap scans, ARP spoofing, host identification, FTP traffic, suspicious HTTP requests and encrypted HTTPS traffic.
 
-I also practised using Wireshark filters to find specific packets, investigate suspicious behaviour and generate firewall rules.
+I also practised using Wireshark filters to find specific packets, investigate unusual behaviour and create firewall rules.
 
-This room helped me improve my practical Wireshark skills and understand how network traffic analysis can be used during security investigations.
+This room gave me more hands-on experience with network traffic analysis and helped me understand how Wireshark can be used during security investigations.
 
 ## Tools Used
 
@@ -21,17 +21,15 @@ This room helped me improve my practical Wireshark skills and understand how net
 
 ## What I Learned
 
-During this room, I practised:
-
-- Identifying Nmap TCP and UDP scans.
-- Investigating ARP spoofing and possible Man-in-the-Middle attacks.
-- Identifying network devices and users through DHCP, NetBIOS and Kerberos.
+- Identifying TCP and UDP scans.
+- Investigating ARP spoofing and Man-in-the-Middle attacks.
+- Identifying network devices and users using DHCP, NetBIOS and Kerberos.
 - Analysing FTP traffic and login activity.
 - Finding unusual HTTP User-Agent values.
 - Investigating a Log4j attack attempt.
 - Decrypting HTTPS traffic using a TLS key log file.
 - Inspecting HTTP/2 packets.
-- Creating firewall rules using Wireshark.
+- Generating firewall rules using Wireshark.
 
 ---
 
@@ -47,7 +45,7 @@ One of the filters I used was:
 tcp.flags.syn == 1 && tcp.flags.ack == 0 && tcp.window_size > 1024
 ```
 
-I spent some time understanding the filter rather than just copying it.
+I spent some time understanding what each part of the filter does:
 
 - `tcp.flags.syn == 1` finds packets with the SYN flag set.
 - `tcp.flags.ack == 0` finds packets without the ACK flag set.
@@ -63,11 +61,24 @@ I also looked up TCP window size to understand how it controls the amount of dat
 | UDP closed-port messages | `icmp.type == 3 && icmp.code == 3` | 1,083 |
 | Open UDP port in the 55–70 range | `udp.port in {55 .. 70}` | 68 |
 
-For the UDP scan, I first filtered for UDP traffic and noticed several ICMP Destination Unreachable messages.
+For the UDP closed-port question, I first filtered for UDP traffic and noticed ICMP Destination Unreachable messages.
 
 I opened one of the packets and checked its ICMP details. I learned that type 3 means Destination Unreachable and code 3 means Port Unreachable.
 
 I found that ports 67 and 69 were unreachable, while port 68 was open.
+
+**Screenshots**
+
+Add your screenshots here showing the Nmap scan filters, packet details and results.
+
+
+<img width="965" height="580" alt="image" src="https://github.com/user-attachments/assets/6f7c5633-e22e-42fa-91e9-44996e3f9b83" />
+
+<img width="955" height="320" alt="image" src="https://github.com/user-attachments/assets/0e8b8c07-7f3f-4d08-b4f3-15afcac707a8" />
+
+<img width="1800" height="1676" alt="image" src="https://github.com/user-attachments/assets/c8d5ad54-e182-45ea-8da1-6a98e99e609a" />
+
+
 
 ### 2. ARP Spoofing and Man-in-the-Middle Investigation
 
@@ -99,8 +110,6 @@ While investigating the capture, I noticed that two different MAC addresses were
 
 I also found one MAC address sending multiple ARP requests to different IP addresses.
 
-I recorded the details so I could follow the devices during the investigation.
-
 | Item | My finding |
 |---|---|
 | Suspected attacker's MAC address | `00:0c:29:e2:18:b4` |
@@ -110,13 +119,13 @@ I recorded the details so I could follow the devices during the investigation.
 | Victim IP address | `192.168.1.12` |
 | Victim MAC address | `00:0c:29:98:c7:a8` |
 
-To make the investigation easier, I added the MAC addresses as columns in Wireshark.
+I added the MAC addresses as columns in Wireshark to make it easier to follow the traffic.
 
-I then noticed that the suspected attacker's MAC address appeared as the destination of the HTTP packets. This helped me understand how the attack could redirect traffic through another device.
+I noticed that the suspected attacker's MAC address appeared as the destination of the HTTP packets. This was an important clue that traffic was being redirected through the attacker's device.
 
 **My results**
 
-| Question | Result |
+| Investigation | Result |
 |---|---:|
 | Number of ARP requests from the suspected attacker | 284 |
 | Number of HTTP packets received by the attacker | 90 |
@@ -135,7 +144,27 @@ After identifying the suspected attacker's MAC address, I added:
 
 For the HTTP packets, I applied a filter using the attacker's MAC address and added `&& http`.
 
-This task helped me understand why checking both IP and MAC addresses can be important when investigating suspicious network traffic.
+**Screenshots**
+
+Add screenshots showing the ARP requests, MAC addresses, suspicious traffic and HTTP packet count.
+
+
+(<img width="1800" height="1671" alt="image" src="https://github.com/user-attachments/assets/35b63048-6eea-4ca3-bf35-8bebfe4d88c6" />
+)
+<img width="1803" height="1679" alt="image" src="https://github.com/user-attachments/assets/8cb25c51-df53-4732-9139-3b3be9c938bb" />
+<img width="1802" height="1675" alt="image" src="https://github.com/user-attachments/assets/3761c8e4-4137-47a3-a1e3-05176bc322b5" />
+<img width="1801" height="1677" alt="image" src="https://github.com/user-attachments/assets/4c76ed12-3354-4c21-86eb-2ee568933740" />
+<img width="1797" height="1678" alt="image" src="https://github.com/user-attachments/assets/19374000-1929-44ac-84fe-3b96820f8892" />
+<img width="1800" height="1672" alt="image" src="https://github.com/user-attachments/assets/a49aab34-3eee-4528-b64e-ab1a591e3855" />
+<img width="1804" height="1679" alt="image" src="https://github.com/user-attachments/assets/9f4f564b-d8c6-4952-ab66-a746b02d3e30" />
+
+<img width="1805" height="1678" alt="image" src="https://github.com/user-attachments/assets/d2bfdbc3-eab9-4243-9194-4a0f96d5de1d" />
+<img width="1800" height="1680" alt="image" src="https://github.com/user-attachments/assets/3fc59e41-dcf1-4584-98ba-7cf2569b6921" />
+
+<img width="1801" height="1677" alt="image" src="https://github.com/user-attachments/assets/801f8ea9-fcc1-4a50-a8af-eb47e2b7fbb4" />
+<img width="1798" height="1680" alt="image" src="https://github.com/user-attachments/assets/6bd0c305-f0f2-4f02-9623-2b60af6f81de" />
+
+
 
 ### 3. Identifying Hosts and Users
 
@@ -172,8 +201,6 @@ I learned that:
 
 I also explored NetBIOS Name Service traffic, which can help identify hostnames on a network.
 
-Filters I used:
-
 ```text
 nbns
 nbns.name contains "keyword"
@@ -198,9 +225,7 @@ kerberos.SNameString == "krbtg"
 
 I learned that the `CNameString` field can contain a username or hostname. Names ending in `$` can represent computer accounts rather than normal user accounts.
 
-**Host identification questions**
-
-I completed the room's questions using the DHCP, NBNS and Kerberos packet captures.
+**My investigation results**
 
 | Investigation | Result |
 |---|---|
@@ -209,6 +234,21 @@ I completed the room's questions using the DHCP, NBNS and Kerberos packet captur
 | Host that requested `172.16.13.85` | Correct answer submitted |
 | IP address of user `u5` | Correct answer submitted |
 | Hostname of the available host in Kerberos packets | Correct answer submitted |
+
+**Screenshots**
+
+Add screenshots showing your DHCP, NBNS and Kerberos filters and the packet details used to identify the hosts and users.
+
+
+
+<img width="1799" height="1679" alt="image" src="https://github.com/user-attachments/assets/83138e08-e92b-4dfb-a9ef-ba165d783407" />
+<img width="1807" height="1675" alt="image" src="https://github.com/user-attachments/assets/13731aa0-82e8-40a1-a235-219b4f786383" />
+<img width="1795" height="1681" alt="image" src="https://github.com/user-attachments/assets/5d0f2a23-ac14-498c-aee7-68ed44818275" />
+<img width="1804" height="1677" alt="image" src="https://github.com/user-attachments/assets/86e82298-c091-40c6-b575-2548f9ca303c" />
+<img width="2924" height="1685" alt="image" src="https://github.com/user-attachments/assets/eb3ecd1b-869d-4ff9-9f31-78fe640cb637" />
+<img width="1809" height="1691" alt="image" src="https://github.com/user-attachments/assets/ac8fd849-4820-4dc8-a17e-a82f38a88ab1" />
+
+
 
 ### 4. Cleartext Protocol Analysis
 
@@ -295,7 +335,7 @@ This helped me locate packet number **444**.
 I inspected the packet and decoded the Base64 command. The decoded command showed an attempt to:
 
 - Download a script called `lh.sh` using `wget`.
-- Change the script permissions using `chmod +x`.
+- Change the script's permissions using `chmod +x`.
 - Execute the downloaded script.
 
 This helped me understand how a suspicious User-Agent can contain information related to an attack attempt.
@@ -305,6 +345,29 @@ This helped me understand how a suspicious User-Agent can contain information re
 | Number of anomalous User-Agent types | 6 |
 | Packet number showing the Log4j attack starting phase | 444 |
 | IP address contacted by the adversary | Correct answer submitted |
+
+**Screenshots**
+
+Add screenshots showing the FTP investigation, User-Agent column, suspicious Log4j packet and decoded command.
+
+
+<img width="1801" height="1676" alt="image" src="https://github.com/user-attachments/assets/e041fdda-46d2-4965-b4ac-cca00a8a928a" />
+<img width="1795" height="1680" alt="image" src="https://github.com/user-attachments/assets/7a49f21a-496c-48f6-97dd-2ca4f47ce296" />
+<img width="1802" height="1678" alt="image" src="https://github.com/user-attachments/assets/86cb365a-a235-4155-a512-e7b8c2c4b7e6" />
+<img width="1805" height="1676" alt="image" src="https://github.com/user-attachments/assets/3f9370c3-4fa8-4add-a1a8-c25347d514b5" />
+<img width="1806" height="1677" alt="image" src="https://github.com/user-attachments/assets/fbf5b73d-60c3-40f9-9052-b0e68522212b" />
+<img width="2920" height="322" alt="image" src="https://github.com/user-attachments/assets/85bda33f-94db-4075-b619-e80ac9895641" />
+<img width="2935" height="1836" alt="image" src="https://github.com/user-attachments/assets/7cf2a02c-563e-49b1-b054-bf4c2a16ad6c" />
+
+
+
+
+
+
+
+![HTTP User-Agent values](YOUR_IMAGE_LINK)
+![Log4j packet](YOUR_IMAGE_LINK)
+```
 
 ### 5. Decrypting HTTPS Traffic
 
@@ -352,6 +415,21 @@ For frame 322, I opened the HTTP/2 packet details and checked the authority head
 
 To find the flag, I used the Wireshark search option and searched for `flag{`. This helped me locate the relevant packet.
 
+**Screenshots**
+
+Add screenshots showing the Client Hello packet, TLS key log configuration, decrypted HTTP/2 packets, frame 322 and the flag.
+
+
+<img width="1806" height="1680" alt="image" src="https://github.com/user-attachments/assets/3dcd24bc-ea00-4d7d-b309-a84f92de30e0" />
+<img width="1803" height="1677" alt="image" src="https://github.com/user-attachments/assets/af63048c-67bc-4092-a1a4-fb14847e54b5" />
+<img width="1802" height="1678" alt="image" src="https://github.com/user-attachments/assets/d42dbbf3-2dba-4494-a276-82323237b7e3" />
+<img width="1807" height="1673" alt="image" src="https://github.com/user-attachments/assets/45083361-8e08-4a55-9c86-28cab69476f2" />
+<img width="1802" height="1677" alt="image" src="https://github.com/user-attachments/assets/fed3ccb3-dd3b-4997-844b-3296559fde76" />
+<img width="1803" height="1677" alt="image" src="https://github.com/user-attachments/assets/b7b78166-3061-4806-9873-0f272cd3e53d" />
+<img width="1806" height="1678" alt="image" src="https://github.com/user-attachments/assets/e58285c9-f56f-4642-a157-69561bb4eb82" />
+<img width="1803" height="1678" alt="image" src="https://github.com/user-attachments/assets/85676452-c511-49ed-bf6b-bb03eb5d7b2d" />
+
+
 ### 6. Bonus: Creating Firewall Rules
 
 In the final task, I learned that Wireshark can generate firewall ACL rules using information from selected packets.
@@ -379,39 +457,34 @@ For the second question, I selected packet 231 and generated the rule to allow t
 
 I found this task interesting because it showed me how information collected during packet analysis can be used to prepare firewall rules.
 
----
+**Screenshots**
 
-## Screenshots
+Add screenshots showing packet 99, packet 231 and the generated IPFirewall rules.
 
-I will include screenshots of my practical work throughout this room.
+<img width="1801" height="1678" alt="image" src="https://github.com/user-attachments/assets/cd10f511-3388-4044-ad17-4065316e5991" />
+<img width="1814" height="1677" alt="image" src="https://github.com/user-attachments/assets/64e8deb6-a6b4-4273-bd66-da7da4c1e4b6" />
+<img width="1805" height="1681" alt="image" src="https://github.com/user-attachments/assets/9bc094e5-dc16-4ac2-84a6-a1e117601db4" />
+<img width="1809" height="1680" alt="image" src="https://github.com/user-attachments/assets/281b4069-3372-48c8-af14-22f88640762c" />
+<img width="1806" height="1681" alt="image" src="https://github.com/user-attachments/assets/c829f776-54aa-49bd-b4d2-c0e638270833" />
 
-The screenshots will show:
 
-- Nmap scan filters and results.
-- ARP requests and suspicious MAC address activity.
-- HTTP traffic linked to the suspected attacker.
-- DHCP, NBNS and Kerberos investigations.
-- FTP traffic and login analysis.
-- HTTP User-Agent values and the Log4j packet.
-- HTTPS decryption using the key log file.
-- HTTP/2 packet details and the flag.
-- Firewall rules generated in Wireshark.
+
 
 ## What I Learned from This Room
 
 This room gave me good hands-on practice with Wireshark and helped me understand how different types of network activity can be investigated.
 
-I learned how to identify scan activity, follow suspicious ARP traffic, find information about devices and users, and inspect unencrypted network communication.
+I learned how to identify scanning activity, follow suspicious ARP traffic, find information about devices and users, and inspect unencrypted network communication.
 
-I also got to work with more advanced areas, such as identifying suspicious User-Agent values, investigating a Log4j attack attempt and decrypting HTTPS traffic using a key log file.
+I also practised identifying unusual User-Agent values, investigating a Log4j attack attempt and decrypting HTTPS traffic using a key log file.
 
-The ARP poisoning task was one of the most interesting parts for me because I could follow the suspicious MAC address and see how it was connected to the HTTP traffic.
+The ARP spoofing task was one of the most interesting parts for me because I could follow the suspicious MAC address and see how it was connected to the HTTP traffic.
 
 I also found the HTTPS task useful because it helped me understand how Wireshark can be used to inspect encrypted traffic when the correct session keys are available.
 
 ## Conclusion
 
-Overall, I found this room very useful for improving my network traffic analysis skills.
+I found this room useful because it gave me practical experience with different areas of network traffic analysis.
 
 I am now more comfortable using Wireshark filters, checking packet details and investigating unusual network activity.
 
